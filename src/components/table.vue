@@ -301,8 +301,8 @@ export default {
   
     }
     .table-head-item{
-      font-size:large;
-      font-weight:200; 
+      font-size:3.2vw;
+   
     }
     .table-coin{
       
