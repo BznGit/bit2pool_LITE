@@ -304,6 +304,10 @@ export default {
       font-size:3.2vw;
    
     }
+    .table-row{
+      font-size:3.2vw;
+    }
+
     .table-coin{
       
       font-size:smaller;
