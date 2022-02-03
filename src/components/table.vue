@@ -302,8 +302,10 @@ export default {
     }
     .table-head-item{
       font-size:large;
+      font-weight:200; 
     }
     .table-coin{
+      
       font-size:smaller;
     }
     .table-row:hover{
