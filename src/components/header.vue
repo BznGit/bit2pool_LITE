@@ -1,8 +1,8 @@
 <template>
   <div class="header">
       <div class="header-logotype">
-        <img class="header-logotype-img" src="../assets/img/logo.png">  
-        <h2 @click="reload">bit2pool LITE</h2>
+        <img class="header-logotype-img" src="../assets/img/logo2.png">  
+        <h3 @click="reload">p2p-spb.xyz</h3>
       </div>
       <div id="srcIcon" @click="searchShow" class="search">
           <img class="header-search-img" src="../assets/img/left2.png">

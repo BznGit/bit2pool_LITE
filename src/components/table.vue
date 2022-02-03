@@ -8,7 +8,7 @@
         Pool hashrate
       </div>
         <div class="table-head-item" @click="pohashrate" >
-        Network hasherate
+        Network hashrate
       </div>
       <div class="table-head-item" @click="postaleprop" >
         Users
@@ -165,14 +165,11 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: 60vw;
-    height: 70vh;
-    overflow-y:hidden;
-    overflow-x:hidden;
+
+
     
   }
-  .table:hover{
-    overflow-y:auto;
-  }
+  
   .table-row{
     display: flex;
     flex-direction: row;
@@ -290,18 +287,21 @@ export default {
     .table{  
       width: 100vw;
       height: 100vh;
-      overflow-y:auto;
+     
       
     }
     .table-head{
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
+      border-bottom:2px solid rgb(154, 207, 234);
       width: 100vw;
-      height: 55px;
+      height: 60px;
+      margin-top: 0px;
+      background-color:white;
   
     }
     .table-head-item{
-      font-size:smaller;
+      font-size:large;
     }
     .table-coin{
       font-size:smaller;
