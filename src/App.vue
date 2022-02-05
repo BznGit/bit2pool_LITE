@@ -127,8 +127,8 @@ export default {
       this.prelod1=false;    
       this.tableVis=false;
       // поиск кошелька и воркеров----
-      let url = configServers[2] + '9338' + '/web/graph_data/miner_hash_rates/last_year';     
-      fetch(url).then(res=>res.json()).then(data=>{
+      let rl = configServers[2] + '9338' + '/web/graph_data/miner_hash_rates/last_year';     
+      fetch(rl).then(res=>res.json()).then(data=>{
              
         let i=0;
         data.forEach(item=>{ 
@@ -153,9 +153,9 @@ export default {
         }               
       })
     }else{
-      var urls = [];
-      var urlsUsers = [];
-      var urlsExpect = [];
+      var rls = [];
+      var rlsUsers = [];
+      var rlsExpect = [];
       var coinIds = [];
 
      let noData = {
@@ -169,13 +169,13 @@ export default {
       }
       // Формирования массивов запросов
       configCoins.forEach((function(item)
-        {urls.push('http://p2p-ekb.xyz:' + item.port + '/global_stats')}));  
+        {rls.push('http://p2p-ekb.xyz:' + item.port + '/global_stats')}));  
         
       configCoins.forEach((function(item)
-        {urlsUsers.push('http://p2p-ekb.xyz:' + item.port + '/users')}));   
+        {rlsUsers.push('http://p2p-ekb.xyz:' + item.port + '/users')}));   
       
       configCoins.forEach((function(item)
-        {urlsExpect.push('http://p2p-ekb.xyz:' + item.port + '/local_stats')}));
+        {rlsExpect.push('http://p2p-ekb.xyz:' + item.port + '/local_stats')}));
       
       configCoins.forEach((function(item)
         {coinIds.push(item.id)}));
@@ -186,8 +186,8 @@ export default {
       var tempArr1 =[];
       var tempArr2 =[];
       var tempArr3 =[];
-      Promise.allSettled(urls.map(url =>
-      fetch(url).then(resp => resp.json())))
+      Promise.allSettled(rls.map(rl =>
+      fetch(rl).then(resp => resp.json())))
       .then(global => {
         let i=0;
         global.forEach(elem => {
@@ -202,8 +202,8 @@ export default {
           }  
         })
       })
-      .then(()=>{ Promise.allSettled(urlsUsers.map(url =>
-        fetch(url).then(resp => resp.json())))
+      .then(()=>{ Promise.allSettled(rlsUsers.map(rl =>
+        fetch(rl).then(resp => resp.json())))
         .then(users => {
             let j = 0;
             users.forEach(item=>{     
@@ -221,8 +221,8 @@ export default {
             })
           })
          })
-        .then(()=> Promise.allSettled(urlsExpect.map(url =>
-          fetch(url).then(resp => resp.json())))
+        .then(()=> Promise.allSettled(rlsExpect.map(rl =>
+          fetch(rl).then(resp => resp.json())))
           .then(expects => {
             let k = 0;
             console.log(expects)
