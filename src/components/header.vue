@@ -1,7 +1,7 @@
 <template>
   <div class="header">
       <div class="header-logotype">
-        <img class="header-logotype-img" src="../assets/img/logo2.png">  
+        <img class="header-logotype-img" src="../assets/img/logo3.png">  
         <h3 @click="reload">p2p-spb.xyz</h3>
       </div>
       <div id="srcIcon" @click="searchShow" class="search">
@@ -79,7 +79,7 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-left: 40px;
+    margin-left: 0px;
     margin-top: auto;
     margin-bottom: auto;
     height: 100%;
@@ -93,7 +93,7 @@ export default {
   }
   .header-logotype-img{
   
-    height: 35px;
+    height: 50px;
     margin-right: 20px;
   }
   .src{
@@ -149,13 +149,13 @@ export default {
   @media screen and (max-width: 760px) {
 
  .header-logotype{
-    margin-left: 10px;
+    margin-left: 0px;
     height: 80%;
   }
 
   .header-logotype-img{
-  
-    height: 25px;
+   
+    height: 50px;
     margin-right: 10px;
   }
   .src{

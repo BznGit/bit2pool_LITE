@@ -174,7 +174,7 @@ export default {
     display: flex;
     flex-direction: row;
     border: 1px solid white;
-    border-bottom: 1px solid rgb(154, 207, 234);
+    border-bottom: 1px solid #31708f;
     justify-content: space-between;
     padding-top:5px;
     padding-bottom:5px;
@@ -285,17 +285,17 @@ export default {
   @media screen and (max-width: 760px) {
   
     .table{  
-      width: 100vw;
-      height: 100vh;
+      width: 98vw;
+    
      
       
     }
     .table-head{
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
-      border-bottom:2px solid rgb(154, 207, 234);
+      border-bottom:2px solid  #31708f;
       width: 100vw;
-      height: 60px;
+      height: max-content;
       margin-top: 0px;
       background-color:white;
   
