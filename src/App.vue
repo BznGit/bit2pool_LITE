@@ -181,8 +181,7 @@ export default {
         {coinIds.push(item.id)}));
        
       var allCoins = coinIds.toString();
-      console.log("allCoins", allCoins)
-      
+           
       var tempArr =[];
       var tempArr1 =[];
       var tempArr2 =[];
@@ -226,9 +225,8 @@ export default {
           fetch(rl).then(resp => resp.json())))
           .then(expects => {
             let k = 0;
-            console.log(expects)
-            expects.forEach(item=>{  
-                   
+       
+            expects.forEach(item=>{           
                   if (item.status=="fulfilled" && item.value != null){
                     let temp = item.value.attempts_to_block/tempArr1[k].pool_hash_rate;
                     var  objExpect ={expectedTime: temp};
@@ -248,13 +246,12 @@ export default {
         .then(()=>{
             fetch('https://api.coingecko.com/api/v3/simple/price?ids=' + allCoins + ',0x&vs_currencies=usd').then(res=>res.json())
             .then(coinGecko =>{ 
-              console.log('Gecko>>',coinGecko)       
+               
               for(let m = 0; m<tempArr2.length; m++){
                 var objPrice={};
                 var obj3={};
             
                 let idd = coinGecko[(tempArr2[m].id)]  ;
-                console.log('idd>>',tempArr2[m].id)
                 if (idd==undefined) objPrice = {price: 'n/a'}
                 else objPrice = {price: coinGecko[(tempArr2[m].id)].usd}
                 obj3 = Object.assign(tempArr2[m], objPrice);

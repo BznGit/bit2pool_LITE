@@ -1,22 +1,22 @@
 
 <template>    
     <div v-if="tableVis" class="table-head">
-      <div class="table-head-item" @click="poalfavity" >
+      <div class="table-head-item coin" @click="poalfavity" >
         Coin
       </div>
-      <div class="table-head-item" @click="pononehash" >
+      <div class="table-head-item pool" @click="pononehash" >
         Pool hashrate
       </div>
-        <div class="table-head-item" @click="pohashrate" >
+        <div class="table-head-item net" @click="pohashrate" >
         Network hashrate
       </div>
-      <div class="table-head-item" @click="postaleprop" >
+      <div class="table-head-item users" @click="postaleprop" >
         Users
       </div>
-      <div class="table-head-item" @click="pomindiff" >
+      <div class="table-head-item exp" @click="pomindiff" >
         Expected time to block
       </div>
-      <div class="table-head-item" @click="poblock" >
+      <div class="table-head-item price" @click="poblock" >
         Price
       </div>
   
@@ -31,9 +31,9 @@
         </div>
         <div class="table-data" >{{item.pool_hash_rate}}</div>
         <div class="table-data" >{{item.network_hashrate}}</div>
-        <div class="table-data"  >{{item.countUsers}}</div>
+        <div class="table-data-users"  >{{item.countUsers}}</div>
         <div class="table-data" >{{item.expectedTime}}</div>
-        <div class="table-data" >{{item.price}}</div>
+        <div class="table-data-price" >{{item.price}}</div>
         
         
       </div>  
@@ -212,9 +212,26 @@ export default {
     color: #31708f;
     font-size:large; 
     align-items: center;
-    justify-content:center;
+    justify-content:start;
     font-weight: bolder; 
   }
+  .coin{
+    width: 15%;
+    padding-left: 30px;
+  }
+  .pool{
+    padding-right: 0;
+  }
+  .net {
+    width: 25%;
+  }
+  .users{
+    justify-content: center;
+  }
+  .price{
+    justify-content: center;
+  }
+
    .table-head-item2{
     display: flex;
     width: 16%; 
@@ -257,6 +274,20 @@ export default {
     justify-content:start;
   }
    .table-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items:center ;
+    width: 14%;
+  }
+  .table-data-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items:center ;
+    width: 14%;
+  }
+    .table-data-users{
     display: flex;
     flex-direction: row;
     justify-content: center;
