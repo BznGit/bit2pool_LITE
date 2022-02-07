@@ -75,7 +75,7 @@ export default {
       console.log(dataCoin);
       this.coinNum=coin.id;
       console.log('=====',this.coinNum )
-      location = 'http://p2p-ekb.xyz:' + coin.id + '/static';
+      location = 'http://'+coin.server + coin.id + '/static';
       //let url = 'http://p2p-ekb.xyz:' + coin.id + '/local_stats';        
       /* fetch(url).then(res=>res.json()).then(data=>{
         console.log(data);

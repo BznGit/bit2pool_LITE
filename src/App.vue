@@ -169,13 +169,13 @@ export default {
       }
       // Формирования массивов запросов
       configCoins.forEach((function(item)
-        {rls.push('http://p2p-ekb.xyz:' + item.port + '/global_stats')}));  
+        {rls.push('http://'+item.server + item.port + '/global_stats')}));  
         
       configCoins.forEach((function(item)
-        {rlsUsers.push('http://p2p-ekb.xyz:' + item.port + '/users')}));   
+        {rlsUsers.push('http://'+item.server + item.port + '/users')}));   
       
       configCoins.forEach((function(item)
-        {rlsExpect.push('http://p2p-ekb.xyz:' + item.port + '/local_stats')}));
+        {rlsExpect.push('http://'+item.server + item.port + '/local_stats')}));
       
       configCoins.forEach((function(item)
         {coinIds.push(item.id)}));
