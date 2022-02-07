@@ -181,6 +181,7 @@ export default {
         {coinIds.push(item.id)}));
        
       var allCoins = coinIds.toString();
+      console.log("allCoins", allCoins)
       
       var tempArr =[];
       var tempArr1 =[];
@@ -246,25 +247,26 @@ export default {
         )
         .then(()=>{
             fetch('https://api.coingecko.com/api/v3/simple/price?ids=' + allCoins + ',0x&vs_currencies=usd').then(res=>res.json())
-            .then(coinGecko =>{        
+            .then(coinGecko =>{ 
+              console.log('Gecko>>',coinGecko)       
               for(let m = 0; m<tempArr2.length; m++){
-                for (var key in coinGecko){
-                  var objPrice={};
-                  var obj3={};
-                  if (key == tempArr2[m].id) {       
-                    objPrice = {price: coinGecko[key].usd}
-                    obj3 = Object.assign(tempArr2[m], objPrice);
-                    tempArr3.push(obj3);  
-                  }
-                }
+                var objPrice={};
+                var obj3={};
+            
+                let idd = coinGecko[(tempArr2[m].id)]  ;
+                console.log('idd>>',tempArr2[m].id)
+                if (idd==undefined) objPrice = {price: 'none'}
+                else objPrice = {price: coinGecko[(tempArr2[m].id)].usd}
+                obj3 = Object.assign(tempArr2[m], objPrice);
+                tempArr3.push(obj3);            
+              
               }
               tempArr3.forEach(item=>{
-                console.log(item)
                 if (item.pool_nonstale_hash_rate=="no data") return
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)
                 item.expectedTime = formatSeconds(item.expectedTime)
-                item.price = '$ ' + item.price;
+                item.price=='none'? item.price = ''+item.price: item.price = '$ '+item.price
                 item.min_difficulty =formatInt(item.min_difficulty)
                 item.network_block_difficulty =formatInt(item.network_block_difficulty)             
               })  
