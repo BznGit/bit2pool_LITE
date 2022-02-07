@@ -192,7 +192,7 @@ export default {
         let i=0;
         global.forEach(elem => {
           if (elem.status=="fulfilled"){
-            let obj = Object.assign(configCoins[i], elem.value);
+            let obj = Object.assign(configCoins[i], elem.value);       
             tempArr.push(obj);
             i++;
           }else{
@@ -259,6 +259,7 @@ export default {
                 }
               }
               tempArr3.forEach(item=>{
+                console.log(item)
                 if (item.pool_nonstale_hash_rate=="no data") return
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)

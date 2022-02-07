@@ -46,7 +46,6 @@
 <script>
 
 import Coin from './coin.vue'
-//import servers from '../assets/config/configServers.config';
 
 export default {
   components: {
@@ -69,13 +68,15 @@ export default {
   methods:{
     chooseCoin(e){
      let coin = e.target.parentNode;
+     console.log(e.target.parentNode)
       if (coin.id=='') coin = coin.parentNode;
       console.log(coin.id)
       let dataCoin = this.sumData.find(item=>item.port == coin.id);
+      let server = dataCoin.server; 
       console.log(dataCoin);
       this.coinNum=coin.id;
       console.log('=====',this.coinNum )
-      location = 'http://'+coin.server + coin.id + '/static';
+      location = 'http://'+server + coin.id + '/static';
       //let url = 'http://p2p-ekb.xyz:' + coin.id + '/local_stats';        
       /* fetch(url).then(res=>res.json()).then(data=>{
         console.log(data);
