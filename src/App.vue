@@ -255,7 +255,7 @@ export default {
             
                 let idd = coinGecko[(tempArr2[m].id)]  ;
                 console.log('idd>>',tempArr2[m].id)
-                if (idd==undefined) objPrice = {price: 'none'}
+                if (idd==undefined) objPrice = {price: 'n/a'}
                 else objPrice = {price: coinGecko[(tempArr2[m].id)].usd}
                 obj3 = Object.assign(tempArr2[m], objPrice);
                 tempArr3.push(obj3);            
@@ -266,7 +266,7 @@ export default {
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)
                 item.expectedTime = formatSeconds(item.expectedTime)
-                item.price=='none'? item.price = ''+item.price: item.price = '$ '+item.price
+                item.price=='n/a'? item.price = ''+item.price: item.price = '$ '+item.price
                 item.min_difficulty =formatInt(item.min_difficulty)
                 item.network_block_difficulty =formatInt(item.network_block_difficulty)             
               })  
