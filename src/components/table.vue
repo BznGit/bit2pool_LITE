@@ -13,7 +13,7 @@
       <div class="table-head-item users" @click="postaleprop" >
         Users
       </div>
-      <div class="table-head-item exp" @click="pomindiff" >
+      <div class="table-head-item expec" @click="pomindiff" >
         Expected time to block
       </div>
       <div class="table-head-item price" @click="poblock" >
@@ -188,6 +188,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     height:max-content;
+    padding: 10px;
     flex-direction: row;
     align-items: center;
     justify-content:center;
@@ -216,20 +217,28 @@ export default {
     font-weight: bolder; 
   }
   .coin{
-    width: 15%;
-    padding-left: 30px;
+    width: 10%;
+    padding-left: 1%;
   }
   .pool{
     padding-right: 0;
+    width: 20%;
   }
   .net {
-    width: 25%;
+    width: 20%;
   }
   .users{
-    justify-content: center;
+    padding-left: 2%;
+    width: 11%;
+  }
+  .expec{
+    justify-content: start;
+    width: 21%;
   }
   .price{
-    justify-content: center;
+    justify-content: start;
+    width: 8%;
+   
   }
 
    .table-head-item2{
@@ -283,16 +292,16 @@ export default {
   .table-data-price{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: start;
     align-items:center ;
-    width: 14%;
+    width: 12%;
   }
     .table-data-users{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+   padding-left: 5%;
     align-items:center ;
-    width: 14%;
+    width: 10%;
   }
 
   .table-row-img{
