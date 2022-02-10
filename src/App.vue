@@ -1,13 +1,21 @@
 <template>
     <Header @search="searchingCoin"/>
-    <div class="wallet">
-      <input id="wltsrc" class="wallet-search" type="text" @input="changeWlt" placeholder="Wallet..." >
-      <div class="wallet-ok" @click="searchWallet">
-        <img class="wallet-ok-img"  v-if="buttonSrc" src="./assets/img/search.png"  >
-        <img class="wallet-ok-img1" v-if="!buttonSrc"  src="./assets/img/close.png">
-        <img class="wallet-ok-img2" v-if="preload2" src="./assets/img/preloader1.gif" >
-      </div>
-      
+    <div class="wellcome card-shadow">
+      <center >
+        <h4>
+          Welcome to P2P-SPB Mining pool
+        </h4>
+        <br>
+      </center>
+      <hr color="lightgrey" size="1">
+      <br>
+      <p>
+        Click on the line with the coin to go to the settings and information page.
+      </p>
+      <br>
+      <p style="color:red">
+        If you don't see the information about the coins, TURN it off ADBLOCK
+      </p>
     </div>
     <Table v-bind:sumData="sumData" v-bind:tableVis="tableVis" v-bind:prelod1="prelod1"  @po-alfavity="poalfavity" @data="onData" />
 </template>
@@ -281,6 +289,9 @@ export default {
 *{
   margin:0;
 }
+.card-shadow {
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -292,60 +303,23 @@ export default {
   overflow-y:hidden;
   
 }
-.wallet{
-  display: none;
-  flex-direction: row;
-  height: 100px; 
-  
-  
-  justify-content: center;
-  align-items: center;
-}
-.wallet-search{
+.wellcome {
   display: flex;
-  width: 30vw;
-  height: 40px;
-  border: 2px solid rgb(154, 207, 234);
-  border-right: 0px;
-  border-radius: 25px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  font-size:20px;
-  outline: 0;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  background: #fff;
+  border: 1px solid #eeeeee;
+  width: 95%;
+  flex-direction: column;
+  font-size: 1rem;
+  word-wrap: normal;        
 }
-.wallet-ok{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0px;;
-  height: 42px;
-  width: 50px;
- 
-  color: rgb(49, 112, 143);
-  border: 2px solid rgb(154, 207, 234);
-  border-left: 0px;
-  border-radius : 25px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  font-size:20px
-}
-.wallet-ok:hover{
-  
-  cursor: pointer;
-  
-}
-.wallet-ok-img{
-  margin-left: 0px;
-  width: 24px;
-}
-.wallet-ok-img1{
-  margin-left: 0px;
-  width: 20px;
-}
-.wallet-ok-img2{
-  margin-left: 0px;
-  width: 30px;
-}
+
 
 @media screen and (max-width: 760px) {
  .wallet{

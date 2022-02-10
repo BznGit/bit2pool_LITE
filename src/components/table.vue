@@ -1,6 +1,7 @@
 
-<template>    
-    <div v-if="tableVis" class="table-head">
+<template> 
+ 
+    <div v-if="tableVis" class="table-head ">
       <div class="table-head-item coin" @click="poalfavity" >
         Coin
       </div>
@@ -19,26 +20,24 @@
       <div class="table-head-item price" @click="poblock" >
         Price
       </div>
-  
     </div>
-    <img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">
- <div class="table">  
-    <div v-for="item in sumData" v-bind:key="item" class="table-body" >
-      <div v-bind:id="item.port" class="table-row"  @click="chooseCoin" >
-        <div class="table-coin" > 
-          <img class="table-row-img"  v-bind:src="item.img">
-          <span class="table-symbol">{{item.symbol}}</span>
-        </div>
+      <img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">
+    <div class="table">  
+      <div v-for="item in sumData" v-bind:key="item" class="table-body" >
+        <div v-bind:id="item.port" class="table-row"  @click="chooseCoin" >
+          <div class="table-coin" > 
+           <img class="table-row-img"  v-bind:src="item.img">
+           <span class="table-symbol">{{item.symbol}}</span>
+         </div>
         <div class="table-data" >{{item.pool_hash_rate}}</div>
         <div class="table-data" >{{item.network_hashrate}}</div>
         <div class="table-data-users"  >{{item.countUsers}}</div>
         <div class="table-data" >{{item.expectedTime}}</div>
-        <div class="table-data-price" >{{item.price}}</div>
-        
-        
-      </div>  
+        <div class="table-data-price" >{{item.price}}</div> 
+       </div>  
+      </div>
     </div>
-  </div>
+
   <Coin  v-if="coinVis" @close-coin="close" v-bind:coinInf="coinInf" v-bind:stratums="stratums" 
     v-bind:recentBlocks="recentBlocks" v-bind:arrHash="arrHash" v-bind:coinNum="coinNum" />
 </template>
@@ -77,72 +76,7 @@ export default {
       this.coinNum=coin.id;
       console.log('=====',this.coinNum )
       location = 'http://'+server + coin.id + '/static';
-      //let url = 'http://p2p-ekb.xyz:' + coin.id + '/local_stats';        
-      /* fetch(url).then(res=>res.json()).then(data=>{
-        console.log(data);
-        let tempObj = {
-          attempts_to_share: data.attempts_to_share,
-          block_value: data.block_value,
-          }
-        this.coinInf = Object.assign(dataCoin, tempObj);
-        
 
-      }).then(()=>{
-        let url1 = 'http://p2p-ekb.xyz:' + coin.id + '/recent_blocks';        
-        fetch(url1).then(res=>res.json()).then(data=>{
-          data.forEach(item=>{
-            let now = new Date();
-            let ts = new Date(item.ts*1000)
-            let when = new Date(now - ts); 
-            if (when.getUTCHours()== '0') item.when = when.getUTCMinutes() + ' minutes ago';
-              else item.when = when.getUTCHours() + ' hours ago';
-       
-            item.ts =  ts.toString()
-          })  
-         if (data.length==0)  this.recentBlocks = [{ts:"no data"}];else  
-          this.recentBlocks = data;
-          console.log(data)
-          
-        });  
-      }).then(()=>{
-        let url2 = 'http://p2p-ekb.xyz:' + coin.id + '/web/graph_data/pool_rates/last_day';        
-        fetch(url2).then(res=>res.json()).then(data=>{
-          this.arrHash = [];
-         
-          data.forEach(item=>{
-           
-            if (item[1].doa == undefined) item[1].doa=0;
-            if (item[1].orphan == undefined) item[1].orphan=0;
-            this.arrHash.push([parseFloat(item[0])*1000, item[1].good + item[1].doa + item[1].doa])
-          
-          })
-          console.log('=>',this.arrHash[299]);
-          this.coinVis =true;
-         });
-      }).then(()=>{
-          //Проверка состояния страты через прокси--------------------------------------------------
-          console.log(servers);
-          servers.forEach(item=>{
-            item = item.slice(0, -1)
-            item = item.slice(7);
-            
-            fetch('/check_stratum_status',{  
-              method:'POST',
-              headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-                },
-              body: JSON.stringify({stratum:item, coin: coin.id})
-            }).then(resp => resp.text())
-            .then(data => {
-              console.log(data) 
-              if (data!==null) this.stratums.push(JSON.parse(data))
-              console.log(this.stratums) 
-
-
-            }).catch((error) => console.log(error))
-          })
-        //--------------------------------------------------------------------------------------------
-      })*/
     },
     close(){
       this.coinVis = false;
@@ -158,17 +92,21 @@ export default {
 </script>
 
 <style scoped>
+
   .table{
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
-
-
-    
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+     border: 1px solid #eeeeee;
+     width: 95%;
+  box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+   
   }
   
   .table-row{
@@ -184,20 +122,22 @@ export default {
   .table-head{
     position:relative;
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     height:max-content;
-    padding: 10px;
+    padding: px;
     flex-direction: row;
     align-items: center;
     justify-content:center;
-    border-radius: 10px;
-    width: 60vw;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    width: 95%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
     background-color:rgb(154, 207, 234);
     margin-bottom: 0;
+   
   }
   .preloder-img{
     margin-left: auto;
@@ -338,9 +278,7 @@ export default {
       width: 100vw;
       height: max-content;
       margin-top: 0px;
-      background-color:white;
-  
-    }
+     }
     .table-head-item{
       font-size:3.2vw;
    
