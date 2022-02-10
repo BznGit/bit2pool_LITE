@@ -5,7 +5,7 @@
       </div>
       <div class="head-name">
         <h3  @click="reload">P2P-SPB - p2pool nodes for many coins</h3>
-      
+      </div>
         <div class="header-href">
           <a href="https://forum.bits.media/index.php?/topic/38977-btcdashvtcsibnvc-nody-p2pool-na-p2p-spbxyz/">
             <img class="header-href-img" src="https://forum.bits.media/bitcoin_forum.svg">
@@ -31,7 +31,7 @@
               </svg>
               </a>
         </div>     
-    </div>
+      
   </div>
    
 </template>
@@ -72,7 +72,7 @@ export default {
 <style scoped>
   .header{
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-content: center;
     width:100vw;
     height:50px;
@@ -86,10 +86,8 @@ export default {
     flex-direction: row;
     height: 100%;
     width: min-content;
-    margin-left: 0;
-    margin-right: auto;
+   
   }
-
   .header-logotype:hover{
     cursor: pointer;
   }
@@ -100,19 +98,18 @@ export default {
   }
   .head-name{
     display: flex;
- 
-    width: 100%;
+    width: max-content;
     height: 100%;
     align-items: center;
-    margin-left: 35%;
+    margin-left: 130px;
     cursor: pointer;
   }
 
   .header-href{
     display: flex;
     align-items: center;
-    margin-right: 15px;
-    margin-left: auto;
+    margin-right: 20px;
+ 
   
   }
   .header-href-img{
@@ -159,8 +156,8 @@ export default {
     width: 100vw;
     height: 100%;
     align-items: center;
-    margin-left: 25%;
-    cursor: pointer;
+    justify-items: ;
+        cursor: pointer;
   }
 
   .header-href{
