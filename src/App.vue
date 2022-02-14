@@ -16,6 +16,7 @@
       <p style="color:red">
         If you don't see the information about the coins, TURN it off ADBLOCK
       </p>
+
     </div>
     <Table v-bind:sumData="sumData" v-bind:tableVis="tableVis" v-bind:prelod1="prelod1"  @po-alfavity="poalfavity" @data="onData" />
 </template>
@@ -25,6 +26,8 @@
 
 import Header from './components/header.vue'
 import Table from './components/table.vue'
+
+
 import configCoins from './assets/config/configCoins.config';
 import configServers from './assets/config/configServers.config';
 import {formatHashrate} from './assets/libs/utils.js';
@@ -49,10 +52,11 @@ export default {
       configServers:configServers,
 		}
 	},
+  
   components: {
     Header,
-    Table,
-    
+    Table
+     
   },
   methods:{
     poalfavity(){  
@@ -268,12 +272,14 @@ export default {
               }
               tempArr3.forEach(item=>{
                 if (item.pool_nonstale_hash_rate=="no data") return
+                item.percentage =  Math.trunc((item.pool_hash_rate/ item.network_hashrate)*100)
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)
                 item.expectedTime = formatSeconds(item.expectedTime)
                 item.price=='n/a'? item.price = ''+item.price: item.price = '$ '+item.price
                 item.min_difficulty =formatInt(item.min_difficulty)
-                item.network_block_difficulty =formatInt(item.network_block_difficulty)             
+                item.network_block_difficulty =formatInt(item.network_block_difficulty)   
+                   
               })  
               this.sumData = tempArr3;
               this.ishodSumData = tempArr3; 

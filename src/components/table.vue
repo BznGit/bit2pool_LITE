@@ -1,7 +1,7 @@
 
 <template> 
  
-    <div v-if="tableVis" class="table-head ">
+  <!--  <div v-if="tableVis" class="table-head ">
       <div class="table-head-item coin" @click="poalfavity" >
         Coin
       </div>
@@ -20,6 +20,9 @@
       <div class="table-head-item price" @click="poblock" >
         Price
       </div>
+       <div class="table-head-item price" @click="poblock" >
+        Рercentage of pool in the network
+      </div>
     </div>
       <img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">
     <div class="table">  
@@ -34,10 +37,70 @@
         <div class="table-data-users"  >{{item.countUsers}}</div>
         <div class="table-data" >{{item.expectedTime}}</div>
         <div class="table-data-price" >{{item.price}}</div> 
+      <k-progress style="width:100px"
+      status="success" 
+      type="line"
+      :percent="item.percentage" >
+    </k-progress>
        </div>  
       </div>
-    </div>
+    </div>-->
 
+<table>
+     <tr v-if="tableVis" class="table-head">
+        <th  @click="poalfavity" >
+       Icon
+      </th>
+      <th  @click="poalfavity" >
+        Coin
+      </th>
+      <th  @click="pononehash" >
+        Pool hashrate
+      </th>
+        <th  @click="pohashrate" >
+        Network hashrate
+      </th>
+      <th  @click="postaleprop" >
+        Users
+      </th>
+      <th  @click="pomindiff" >
+        Expected time to block
+      </th>
+      <th  @click="poblock" >
+        Price
+      </th>
+       <th  @click="poblock" >
+        Рercentage of pool in the network
+      </th>
+      
+    </tr>
+<img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">  
+      <tr v-for="item in sumData" v-bind:key="item" class="table-body" v-bind:id="item.port"  @click="chooseCoin" >
+      
+      <td > 
+           <img class="table-row-img"  v-bind:src="item.img">
+        </td>
+       <td>
+           <span c>{{item.symbol}}</span>
+      </td>
+         
+        
+        <td  >{{item.pool_hash_rate}}</td>
+        <td >{{item.network_hashrate}}</td>
+        <td   >{{item.countUsers}}</td>
+        <td >{{item.expectedTime}}</td>
+        <td  >{{item.price}}</td> 
+         <td>
+         <k-progress 
+           status="success" 
+           type="line"
+           :percent="item.percentage" >
+         </k-progress>
+         </td>
+     </tr>  
+    </table>
+    
+     
   <Coin  v-if="coinVis" @close-coin="close" v-bind:coinInf="coinInf" v-bind:stratums="stratums" 
     v-bind:recentBlocks="recentBlocks" v-bind:arrHash="arrHash" v-bind:coinNum="coinNum" />
 </template>
@@ -45,10 +108,11 @@
 <script>
 
 import Coin from './coin.vue'
-
+import  KProgress from './kprogress.vue'
 export default {
   components: {
      Coin,
+     KProgress
   },
 
   data: function(){
@@ -93,211 +157,76 @@ export default {
 
 <style scoped>
 
-  .table{
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  table{
     margin-left: auto;
     margin-right: auto;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 10px;
-     border: 1px solid #eeeeee;
-     width: 95%;
-  box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+    margin-top: 20px;
+    width: 96%;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+    border-spacing: 0;
+    text-align: left;
    
+    
   }
-  
-  .table-row{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid white;
-    border-bottom: 1px solid #31708f;
-    justify-content: space-between;
-    padding-top:5px;
-    padding-bottom:5px;
+  th{
+
+     padding: 10px;
+  }
+  tr{
+    font-size: 1em;
+    padding-left: 5px;
+   
+   
     
   }
   .table-head{
-    position:relative;
-    display: flex;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
     height:max-content;
-    padding: px;
-    flex-direction: row;
-    align-items: center;
-    justify-content:center;
-    width: 95%;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 10px;
     background-color:rgb(154, 207, 234);
-    margin-bottom: 0;
+    border: 0px solid rgb(154, 207, 234);
+    color: #31708f;
+    font-size:1em;
+    height: 50px; 
+    font-weight: bolder;
+    
+   
+   
    
   }
   .preloder-img{
-    margin-left: auto;
+    margin-left: 45vw;
+    
     margin-top: 30vh;
     height: 100px;
     width: 100px;
    
 }
+td{
+   padding-left: 10px;
+    border-bottom: 1px solid #31708f;
 
-  .table-head-item{
-    display: flex;
-    width: 19%; 
-    color: #31708f;
-    font-size:large; 
-    align-items: center;
-    justify-content:start;
-    font-weight: bolder; 
-  }
-  .coin{
-    width: 10%;
-    padding-left: 1%;
-  }
-  .pool{
-    padding-right: 0;
-    width: 20%;
-  }
-  .net {
-    width: 20%;
-  }
-  .users{
-    padding-left: 2%;
-    width: 11%;
-  }
-  .expec{
-    justify-content: start;
-    width: 21%;
-  }
-  .price{
-    justify-content: start;
-    width: 8%;
-   
-  }
+}
 
-   .table-head-item2{
-    display: flex;
-    width: 16%; 
-    color: #31708f;
-    font-size:1em;
-    height: 50px; 
-    align-items: center;
-    justify-content:center;
-    font-weight: bolder; 
-  } 
 
-  .table-head-item:hover{
+  tr:hover{
    cursor: pointer; 
-   color: red;  
-  } 
-  .table-row{
-      display: flex;
-      height: max-content;
-      
-  }
-  .table-row:hover{
+   color: red; 
     font-weight:bolder;
-    
-    color: rgb(253, 1, 1);
-    
-      
-  }
-  .table-coin{
-    display: flex; 
-    flex-direction: row;
-    width: 15%;
-    justify-content: start;
-    align-items:center ;
-    overflow-wrap: break-word;
-    word-wrap: normal;
-    word-break: break-all;
-  }
-  .table-symbol{
-    display: flex;
-    justify-content:start;
-  }
-   .table-data{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items:center ;
-    width: 14%;
-  }
-  .table-data-price{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items:center ;
-    width: 12%;
-  }
-    .table-data-users{
-    display: flex;
-    flex-direction: row;
-   padding-left: 5%;
-    align-items:center ;
-    width: 10%;
+  } 
+  .table-head:hover{
+    cursor:default;
+    color: #31708f;
+    font-weight:normal;
   }
 
-  .table-row-img{
-    width: 25px;
-    display: flex;
-    align-self: center;
-    margin-right: 15%;
-    margin-left: 10%;
-    z-index: 0;
-        
-  }
-  .table-row>p{
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    width: 25%;
-    align-items: center;
-    height: 50px;
-    font-size:larger;
-    color: black;
-  }
+   
+
+
+
+
   @media screen and (max-width: 760px) {
   
-    .table{  
-      width: 98vw;
-    
-     
-      
-    }
-    .table-head{
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom:2px solid  #31708f;
-      width: 100vw;
-      height: max-content;
-      margin-top: 0px;
-     }
-    .table-head-item{
-      font-size:3.2vw;
-   
-    }
-    .table-row{
-      font-size:3.2vw;
-    }
 
-    .table-coin{
-      
-      font-size:smaller;
-    }
-    .table-row:hover{
-   
-      font-weight:unset;
-      color: rgb(253, 1, 1);
-    
-      
-  }
+  
 
   }
 

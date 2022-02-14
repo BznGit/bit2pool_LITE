@@ -12,6 +12,8 @@
     "express": "^4.17.1",
     "highcharts": "^9.1.2",
     "highcharts-vue": "^1.4.0",
+    "k-progress": "^1.5.0",
+    "k-progress-v3": "^1.0.0",
     "stratum": "^0.2.4",
     "vue": "^3.0.0",
     "vue-router": "^3.5.1",
