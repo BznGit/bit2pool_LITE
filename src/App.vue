@@ -328,22 +328,9 @@ export default {
 
 
 @media screen and (max-width: 760px) {
- .wallet{
-    height: max-content;
-    width: 100vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-left: 0px;
- }
- .wallet-search{
-   width: 100vw;
-   border-radius: 0px;
-
-  font-size:20px;
-  outline: 0;
-}
-.wallet-ok{
-  border-radius: 0px;
+.wellcome{
+  margin: 0;
+  
 }
 
 }

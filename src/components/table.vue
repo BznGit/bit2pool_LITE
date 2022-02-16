@@ -35,7 +35,7 @@
            <img class="table-row-img"  v-bind:src="item.img">
         </td>
        <td>
-           <span c>{{item.symbol}}</span>
+           {{item.symbol}}
       </td>
          
         
@@ -123,18 +123,15 @@ export default {
     
   }
   th{
-
-     padding: 10px;
+    padding: 10px;
   }
   tr{
     font-size: 1em;
     padding-left: 5px;
-   
-   
-    
+       
   }
   .table-head{
-    height:max-content;
+    height:min-content;
     background-color:rgb(154, 207, 234);
     border: 0px solid rgb(154, 207, 234);
     color: #31708f;
@@ -142,8 +139,6 @@ export default {
     height: 50px; 
     font-weight: bolder;
     
-   
-   
    
   }
   .preloder-img{
@@ -172,15 +167,20 @@ td{
     font-weight:normal;
   }
 
-   
-
-
-
-
   @media screen and (max-width: 760px) {
-  
+  table{
+    margin: 0;
+    width: 100vw;
 
-  
+  }
+  th{
+    padding: 5px;
+  }
+    tr{
+    font-size: 1em;
+    padding-left: 1px;
+       
+  }
 
   }
 
