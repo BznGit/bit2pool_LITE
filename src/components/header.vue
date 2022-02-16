@@ -10,7 +10,7 @@
           <a href="https://forum.bits.media/index.php?/topic/38977-btcdashvtcsibnvc-nody-p2pool-na-p2p-spbxyz/">
             <img class="header-href-img" src="https://forum.bits.media/bitcoin_forum.svg">
           </a>
-          <a href="https://telegram.org/dl?tme=f4f9964d53579b65dc_3989336244067786002">
+          <a href="https://t.me/p2pspb">
             <svg 
               width="35px"
               height="35px"
