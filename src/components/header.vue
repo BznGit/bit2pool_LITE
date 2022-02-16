@@ -10,7 +10,7 @@
           <a href="https://forum.bits.media/index.php?/topic/38977-btcdashvtcsibnvc-nody-p2pool-na-p2p-spbxyz/">
             <img class="header-href-img" src="https://forum.bits.media/bitcoin_forum.svg">
           </a>
-          <a href="https://t.me/p2pspb">
+          <a href="https://telegram.org/dl?tme=f4f9964d53579b65dc_3989336244067786002">
             <svg 
               width="35px"
               height="35px"
@@ -79,7 +79,6 @@ export default {
     color: white;
     background-color:#008CBA;
   }
-
   .header-logotype{
     display: flex;
     align-items: center;
@@ -94,7 +93,6 @@ export default {
   .header-logotype-img{
   
     height: 50px;
-
   }
   .head-name{
     display: flex;
@@ -104,7 +102,6 @@ export default {
     margin-left: 130px;
     cursor: pointer;
   }
-
   .header-href{
     display: flex;
     align-items: center;
@@ -118,8 +115,6 @@ export default {
      
   }
   
-
-
   @media screen and (max-width: 760px) {
   .header{
     display: flex;
@@ -131,7 +126,6 @@ export default {
     background-color:#008CBA;
     
   }
-
   .header-logotype{
     display: flex;
     align-items: center;
@@ -141,25 +135,21 @@ export default {
     margin-left: 0;
     margin-right: auto;
   }
-
   .header-logotype:hover{
     cursor: pointer;
   }
   .header-logotype-img{
   
     height: 50px;
-
   }
   .head-name{
     display: flex;
-
     width: 100vw;
     height: 100%;
     align-items: center;
-    justify-items: ;
+    justify-items: center;
         cursor: pointer;
   }
-
   .header-href{
     display: flex;
     align-items: center;
@@ -173,8 +163,5 @@ export default {
      
   }
   
-
-
 }     
-
 </style>

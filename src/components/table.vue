@@ -1,51 +1,5 @@
 
 <template> 
- 
-  <!--  <div v-if="tableVis" class="table-head ">
-      <div class="table-head-item coin" @click="poalfavity" >
-        Coin
-      </div>
-      <div class="table-head-item pool" @click="pononehash" >
-        Pool hashrate
-      </div>
-        <div class="table-head-item net" @click="pohashrate" >
-        Network hashrate
-      </div>
-      <div class="table-head-item users" @click="postaleprop" >
-        Users
-      </div>
-      <div class="table-head-item expec" @click="pomindiff" >
-        Expected time to block
-      </div>
-      <div class="table-head-item price" @click="poblock" >
-        Price
-      </div>
-       <div class="table-head-item price" @click="poblock" >
-        Рercentage of pool in the network
-      </div>
-    </div>
-      <img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">
-    <div class="table">  
-      <div v-for="item in sumData" v-bind:key="item" class="table-body" >
-        <div v-bind:id="item.port" class="table-row"  @click="chooseCoin" >
-          <div class="table-coin" > 
-           <img class="table-row-img"  v-bind:src="item.img">
-           <span class="table-symbol">{{item.symbol}}</span>
-         </div>
-        <div class="table-data" >{{item.pool_hash_rate}}</div>
-        <div class="table-data" >{{item.network_hashrate}}</div>
-        <div class="table-data-users"  >{{item.countUsers}}</div>
-        <div class="table-data" >{{item.expectedTime}}</div>
-        <div class="table-data-price" >{{item.price}}</div> 
-      <k-progress style="width:100px"
-      status="success" 
-      type="line"
-      :percent="item.percentage" >
-    </k-progress>
-       </div>  
-      </div>
-    </div>-->
-
 <table>
      <tr v-if="tableVis" class="table-head">
         <th  @click="poalfavity" >
