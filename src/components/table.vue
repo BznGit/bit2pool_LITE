@@ -176,7 +176,7 @@ td{
     padding: 5px;
   }
     tr{
-    font-size: 2em;
+  
     padding-left: 1px;
        
   }
