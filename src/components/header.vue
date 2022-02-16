@@ -135,16 +135,23 @@ export default {
   }
   
   @media screen and (max-width: 760px) {
- .bits-full{
-     display: none;
- }
-  .bits-short{
-      display: block;
-  }
-  .head-name{
-    margin-left: 0px;
+    .header{
+        width: 100vw;
+    }
+    .header-href{
+        margin-right: 5px;
+    
+    }
+    .bits-full{
+        display: none;
+    }
+    .bits-short{
+        display: block;
+    }
+    .head-name{
+        margin-left: 0px;
 
-  }
+    }
 
 
   

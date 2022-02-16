@@ -152,14 +152,13 @@ export default {
 td{
    padding-left: 10px;
     border-bottom: 1px solid #31708f;
-
 }
 
 
   tr:hover{
    cursor: pointer; 
    color: red; 
-    font-weight:bolder;
+   font-weight:bolder;
   } 
   .table-head:hover{
     cursor:default;
@@ -177,7 +176,7 @@ td{
     padding: 5px;
   }
     tr{
-    font-size: 1em;
+    font-size: 2em;
     padding-left: 1px;
        
   }

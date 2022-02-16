@@ -272,15 +272,21 @@ export default {
               }
               tempArr3.forEach(item=>{
                 if (item.pool_nonstale_hash_rate=="no data") return
-                item.percentage =  Math.trunc((item.pool_hash_rate/ item.network_hashrate)*100)
+
+                let a = item.pool_hash_rate;
+                let b =  item.network_hashrate;
+                if (a<b) item.percentage =  ((a / b)*100); else  item.percentage=100;
+                
+                console.log('percentage=',item.percentage,' = ', item.pool_hash_rate, ' / ', item.network_hashrate)  
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)
                 item.expectedTime = formatSeconds(item.expectedTime)
                 item.price=='n/a'? item.price = ''+item.price: item.price = '$ '+item.price
                 item.min_difficulty =formatInt(item.min_difficulty)
                 item.network_block_difficulty =formatInt(item.network_block_difficulty)   
-                   
+                
               })  
+              
               this.sumData = tempArr3;
               this.ishodSumData = tempArr3; 
             })
@@ -307,7 +313,7 @@ export default {
   margin: 0;
   padding: 0;
   overflow-y:hidden;
-  
+   overflow-x:hidden;
 }
 .wellcome {
   display: flex;
@@ -330,6 +336,7 @@ export default {
 @media screen and (max-width: 760px) {
 .wellcome{
   margin: 0;
+  width: 100vw;
   
 }
 

@@ -66,7 +66,7 @@ export default {
     },
     cutWidth: {
       type: Number,
-      default: 1,
+      default: 2,
     },
     type: {
       type: String,
@@ -83,7 +83,7 @@ export default {
     },
     lineHeight: {
       type: Number,
-      default: 10
+      default: 14
     },
     color: {
       type: [String, Array, Function],
@@ -197,6 +197,4 @@ export default {
   },
 }
 </script>
-© 2022 GitHub, Inc.
-Terms
-Privacy
+
