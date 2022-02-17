@@ -1,23 +1,19 @@
 <template>
     <Header @search="searchingCoin"/>
-    <div class="wellcome card-shadow">
-      <center >
-        <h4>
-          Welcome to P2P-SPB Mining pool
-        </h4>
-        <br>
-      </center>
-      <hr color="lightgrey" size="1">
-      <br>
-      <p>
-        Click on the line with the coin to go to the settings and information page.
-      </p>
-      <br>
-      <p style="color:red">
-        If you don't see the information about the coins, TURN it off ADBLOCK
-      </p>
-
-    </div>
+   
+   
+      
+      <div class="wellcome card-shadow">
+        <div class="wellcome-logotype">
+          <img class="wellcome-logotype-img" src="./assets/img/logo3.png">  
+        </div>
+        <div class="wellcome-text">      
+          <h4>Welcome to P2P-SPB Mining pool</h4>   
+          <hr color="lightgrey" size="1">
+          <p>Click on the line with the coin to go to the settings and information page.</p>
+          <p style="color:red">If you don't see the information about the coins, TURN it off ADBLOCK</p>
+        </div>
+      </div>
     <Table v-bind:sumData="sumData" v-bind:tableVis="tableVis" v-bind:prelod1="prelod1"  @po-alfavity="poalfavity" @data="onData" />
 </template>
 
@@ -315,9 +311,11 @@ export default {
   overflow-y:hidden;
    overflow-x:hidden;
 }
+
 .wellcome {
   display: flex;
-  margin-top: 20px;
+  flex-direction: row;
+   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 10px;
@@ -327,19 +325,57 @@ export default {
   background: #fff;
   border: 1px solid #eeeeee;
   width: 95%;
-  flex-direction: column;
   font-size: 1rem;
   word-wrap: normal;        
 }
+  .wellcome-logotype{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 120px;
+  
+   
+  }
+  .wellcome-logotype:hover{
+    cursor: pointer;
+  }
+  .wellcome-logotype-img{
+  
+    width: 120px;
+  }
+  .wellcome-text{
+    display: flex;
+    margin-left: 15px;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+  }
+  .wellcome-text h4, p{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 
 
 @media screen and (max-width: 760px) {
-.wellcome{
-  margin: 0;
-  width: 100vw;
-  
-}
+  .wellcome{
+    padding-left: 0;
+    width: 100vw;
+    margin: 0;
+    }
+  .wellcome-logotype{
+    display: none;
 
+  }
+  .wellcome-text{
+    margin-left: 0;
+   
+
+  }
+    .wellcome-text h4, p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
 }
 
 

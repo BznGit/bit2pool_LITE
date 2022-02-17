@@ -1,11 +1,9 @@
 <template>
   <div class="header">
-      <div class="header-logotype">
-        <img class="header-logotype-img" src="../assets/img/logo3.png">  
-      </div>
+
       <div class="head-name">
-        <h3  @click="reload">P2P-SPB</h3>
-        <h3 class="head-name-h3">- p2pool nodes for many coins</h3>
+        <h3  @click="reload" style="margin-right:3px">P2P-SPB</h3>
+        <h3 class="head-name-h3"> - p2pool nodes for many coins</h3>
       </div>
         <div class="header-href">
           <a href="https://forum.bits.media/index.php?/topic/38977-btcdashvtcsibnvc-nody-p2pool-na-p2p-spbxyz/">
@@ -86,41 +84,28 @@ export default {
 <style scoped>
   .header{
     display: flex;
-    justify-content: space-between;
-    align-content: center;
+    flex-direction: row;
     width:100vw;
     height:50px;
     color: white;
     background-color:#008CBA;
+
   }
-  .header-logotype{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    height: 100%;
-    width: min-content;
-   
-  }
-  .header-logotype:hover{
-    cursor: pointer;
-  }
-  .header-logotype-img{
-  
-    height: 50px;
-  }
+
   .head-name{
     display: flex;
-    width: max-content;
-    height: 100%;
+    width: 100%;
+    justify-content: center;
+    margin-left: 16%;
     align-items: center;
-    margin-left: 130px;
     cursor: pointer;
   }
   .header-href{
     display: flex;
+    width: 200px;
     align-items: center;
-    margin-right: 20px;
-   
+    margin-right: 15px;
+    
   }
   .bits-full{
     margin-right: 10px;
@@ -143,7 +128,11 @@ export default {
       display: none;
     }
     .header-href{
-        margin-right: 5px;
+     
+      width: 60px;
+      align-items: center;
+      margin-right: 15px;
+    
     
     }
     .bits-full{
@@ -153,7 +142,7 @@ export default {
         display: block;
     }
     .head-name{
-        margin-left: 0px;
+   
 
     }
 

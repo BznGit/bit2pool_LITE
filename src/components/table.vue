@@ -1,86 +1,45 @@
 
 <template> 
-<table>
-     <tr v-if="tableVis" class="table-head">
-        <th  @click="poalfavity" >
-       Icon
-      </th>
-      <th  @click="poalfavity" >
-        Coin
-      </th>
-      <th  @click="pononehash" >
-        Pool hashrate
-      </th>
-        <th  @click="pohashrate" >
-        Network hashrate
-      </th>
-      <th  @click="poblock" >
-        Рercentage of pool in the network
-      </th>
-      <th  @click="postaleprop" >
-        Users
-      </th>
-      <th  @click="pomindiff" >
-        Expected time to block
-      </th>
-      <th  @click="poblock" >
-        Price
-      </th>
-
-      
-    </tr>
-<img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">  
-      <tr v-for="item in sumData" v-bind:key="item" class="table-body" v-bind:id="item.port"  @click="chooseCoin" >
-      
-      <td > 
-           <img class="table-row-img"  v-bind:src="item.img">
-        </td>
-       <td>
-           {{item.symbol}}
-      </td>
-         
-        
-        <td  >{{item.pool_hash_rate}}</td>
-        <td >{{item.network_hashrate}}</td>
-        <td>
-         <k-progress 
-           status="success" 
-           type="line"
-           :percent="item.percentage" >
-         </k-progress>
-         </td>
-        <td   >{{item.countUsers}}</td>
-        <td >{{item.expectedTime}}</td>
-        <td  >{{item.price}}</td> 
-       
-     </tr>  
-    </table>
+  
+  <table>
     
-     
-  <Coin  v-if="coinVis" @close-coin="close" v-bind:coinInf="coinInf" v-bind:stratums="stratums" 
-    v-bind:recentBlocks="recentBlocks" v-bind:arrHash="arrHash" v-bind:coinNum="coinNum" />
+    <tr  class="table-head">
+        <th class="table-td-none">Icon</th>
+        <th>Coin</th>
+        <th>Pool hashrate</th>
+        <th>Network hashrate</th>
+        <th class="table-td-none">Рercentage of pool in the network</th>
+        <th>Users</th>
+        <th class="table-td-none">Expected time to block</th>
+        <th>Price</th>
+    </tr><img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1"> 
+    <tr v-for="item in sumData" v-bind:key="item" class="table-body" v-bind:id="item.port"  @click="chooseCoin">
+      <td class="table-td-none"> 
+        <img class="table-row-img"  v-bind:src="item.img">
+      </td>
+      <td >{{item.symbol}}</td>   
+      <td >{{item.pool_hash_rate}}</td>
+      <td >{{item.network_hashrate}}</td>
+      <td class="table-td-none">
+        <k-progress status="success" type="line" :percent="item.percentage" ></k-progress>
+      </td>
+      <td class="table-td-users">{{item.countUsers}}</td>
+      <td class="table-td-none">{{item.expectedTime}}</td>
+      <td >{{item.price}}</td>     
+     </tr>  
+  </table> 
 </template>
 
 <script>
 
-import Coin from './coin.vue'
 import  KProgress from './kprogress.vue'
 export default {
-  components: {
-     Coin,
+  components: { 
      KProgress
   },
 
   data: function(){
     return{
-      coinVis:false,
-      coinInf:null,
-      recentBlocks: null,
-      arrTime: null,
-      arrHash: null, 
-      coinNum: null, 
-      stratums: [],
-    
     }
   },
   props:['sumData', 'prelod1', 'tableVis'],
@@ -98,16 +57,8 @@ export default {
       location = 'http://'+server + coin.id + '/static';
 
     },
-    close(){
-      this.coinVis = false;
-      this.stratums=[];
-    }   
-  },
-  created(){ 
-         
   },
 }
-
 
 </script>
 
@@ -121,7 +72,6 @@ export default {
     box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
     border-spacing: 0;
     text-align: left;
-   
     
   }
   th{
@@ -140,23 +90,19 @@ export default {
     font-size:1em;
     height: 50px; 
     font-weight: bolder;
-    
-   
+      
   }
   .preloder-img{
-    margin-left: 45vw;
-    
-    margin-top: 30vh;
-    height: 100px;
-    width: 100px;
+    margin-left: 47vw;
+    margin-top: 32vh;
+    height: 70px;
+    width: 70px;
    
-}
-td{
-   padding-left: 10px;
-    border-bottom: 1px solid #31708f;
-}
-
-
+  }
+  td{
+    padding-left: 10px;
+      border-bottom: 1px solid #31708f;
+  }
   tr:hover{
    cursor: pointer; 
    color: red; 
@@ -168,6 +114,10 @@ td{
     font-weight:normal;
   }
 
+  .table-td-users{
+    padding-left: 20px;
+  }
+
   @media screen and (max-width: 760px) {
   table{
     margin: 0;
@@ -177,10 +127,19 @@ td{
   th{
     padding: 5px;
   }
-    tr{
-  
+  tr{
     padding-left: 1px;
        
+  }
+   .preloder-img{
+    margin-left: 47vw;
+    margin-top: 32vh;
+    height: 50px;
+    width: 50px;
+   
+  }
+   .table-td-none{
+    display: none;
   }
 
   }
