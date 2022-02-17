@@ -29,8 +29,8 @@ import configServers from './assets/config/configServers.config';
 import {formatHashrate} from './assets/libs/utils.js';
 import {formatInt} from './assets/libs/utils.js';
 import {formatSeconds} from './assets/libs/utils.js';
-import {sad} from './assets/libs/utils.js';
-console.log('Сумма:',sad(2,4))
+//import {sad} from './assets/libs/utils.js';
+//console.log('Сумма:',sad(2,4))
 
 export default {
   name: 'App',
@@ -73,13 +73,13 @@ export default {
     },
   
     searchingCoin(src){   
-			console.log(src)
+			//console.log(src)
       if (src== 0) this.sumData = this.ishodSumData;
    
       let arr = this.sumData.filter(function(item){
       let curr = item.symbol.toLowerCase();
       let bool = curr.includes(src.toLowerCase())
-      console.log(bool)
+     // console.log(bool)
       if (bool == true) return true;
      });
     
@@ -273,7 +273,7 @@ export default {
                 let b =  item.network_hashrate;
                 if (a<b) item.percentage =  ((a / b)*100).toFixed(2); else  item.percentage=100;
                 
-                console.log('percentage=',item.percentage,' = ', item.pool_hash_rate, ' / ', item.network_hashrate)  
+                //console.log('percentage=',item.percentage,' = ', item.pool_hash_rate, ' / ', item.network_hashrate)  
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
                 item.network_hashrate =formatHashrate(item.network_hashrate)
                 item.expectedTime = formatSeconds(item.expectedTime)

@@ -11,7 +11,7 @@
         <th class="table-td-none">Рercentage of pool in the network</th>
         <th>Users</th>
         <th class="table-td-none">Expected time to block</th>
-        <th>Price</th>
+        <th class="table-td-none">Price</th>
     </tr><img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1"> 
     <tr v-for="item in sumData" v-bind:key="item" class="table-body" v-bind:id="item.port"  @click="chooseCoin">
       <td class="table-td-none"> 
@@ -25,7 +25,7 @@
       </td>
       <td class="table-td-users">{{item.countUsers}}</td>
       <td class="table-td-none">{{item.expectedTime}}</td>
-      <td >{{item.price}}</td>     
+      <td class="table-td-none">{{item.price}}</td>     
      </tr>  
   </table> 
 </template>
