@@ -5,7 +5,9 @@
       
       <div class="wellcome card-shadow">
         <div class="wellcome-logotype">
-          <img class="wellcome-logotype-img" src="./assets/img/logo3.png">  
+          <a href="https://t.me/p2pspb">
+           <img  class="wellcome-logotype-img" src="./assets/img/logo3.png">  
+          </a>
         </div>
         <div class="wellcome-text">      
           <h4>Welcome to P2P-SPB Mining pool</h4>   
