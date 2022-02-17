@@ -4,7 +4,8 @@
         <img class="header-logotype-img" src="../assets/img/logo3.png">  
       </div>
       <div class="head-name">
-        <h3  @click="reload">P2P-SPB - p2pool nodes for many coins</h3>
+        <h3  @click="reload">P2P-SPB</h3>
+        <h3 class="head-name-h3">- p2pool nodes for many coins</h3>
       </div>
         <div class="header-href">
           <a href="https://forum.bits.media/index.php?/topic/38977-btcdashvtcsibnvc-nody-p2pool-na-p2p-spbxyz/">
@@ -137,6 +138,9 @@ export default {
   @media screen and (max-width: 760px) {
     .header{
         width: 100vw;
+    }
+    .head-name-h3{
+      display: none;
     }
     .header-href{
         margin-right: 5px;

@@ -14,6 +14,9 @@
         <th  @click="pohashrate" >
         Network hashrate
       </th>
+      <th  @click="poblock" >
+        Рercentage of pool in the network
+      </th>
       <th  @click="postaleprop" >
         Users
       </th>
@@ -23,9 +26,7 @@
       <th  @click="poblock" >
         Price
       </th>
-       <th  @click="poblock" >
-        Рercentage of pool in the network
-      </th>
+
       
     </tr>
 <img  class="preloder-img" src="../assets/img/preloader1.gif" v-if="prelod1">  
@@ -41,16 +42,17 @@
         
         <td  >{{item.pool_hash_rate}}</td>
         <td >{{item.network_hashrate}}</td>
-        <td   >{{item.countUsers}}</td>
-        <td >{{item.expectedTime}}</td>
-        <td  >{{item.price}}</td> 
-         <td>
+        <td>
          <k-progress 
            status="success" 
            type="line"
            :percent="item.percentage" >
          </k-progress>
          </td>
+        <td   >{{item.countUsers}}</td>
+        <td >{{item.expectedTime}}</td>
+        <td  >{{item.price}}</td> 
+       
      </tr>  
     </table>
     

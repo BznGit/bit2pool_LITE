@@ -275,7 +275,7 @@ export default {
 
                 let a = item.pool_hash_rate;
                 let b =  item.network_hashrate;
-                if (a<b) item.percentage =  ((a / b)*100); else  item.percentage=100;
+                if (a<b) item.percentage =  ((a / b)*100).toFixed(2); else  item.percentage=100;
                 
                 console.log('percentage=',item.percentage,' = ', item.pool_hash_rate, ' / ', item.network_hashrate)  
                 item.pool_hash_rate = formatHashrate(item.pool_hash_rate)
